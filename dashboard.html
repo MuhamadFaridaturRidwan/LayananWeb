@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Inventori Barang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <nav class="bg-blue-800 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center text-white">
+            <span class="font-bold text-xl tracking-wide">Inventori Barang PT. Rasyid Sejahtera</span>
+            <ul class="flex space-x-6">
+                <li><a href="dashboard.html" class="hover:text-blue-300 font-semibold">Dashboard</a></li>
+                <li><a href="masuk.html" class="hover:text-blue-300 font-semibold">Barang Masuk</a></li>
+                <li><a href="keluar.html" class="hover:text-blue-300 font-semibold">Barang Keluar</a></li>
+                <li><a href="laporan.html" class="hover:text-blue-300 font-semibold">Laporan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8 p-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-blue-500 transform hover:scale-105 transition duration-300">
+                <h3 class="text-gray-500 text-sm uppercase font-bold tracking-wider">Total Barang</h3>
+                <p class="text-3xl font-bold text-gray-800 mt-2">1,245</p>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-6 border-l-4 border-green-500 transform hover:scale-105 transition duration-300">
+                <h3 class="text-gray-500 text-sm uppercase font-bold tracking-wider">Barang Masuk (Bulan Ini)</h3>
+                <p class="text-3xl font-bold text-gray-800 mt-2">320</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 border-l-4 border-red-500">
+                <h3 class="text-gray-500 text-sm uppercase font-bold tracking-wider">Barang Keluar (Bulan Ini)</h3>
+                <p class="text-3xl font-bold text-gray-800 mt-2">150</p>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+            <div class="px-6 py-4 border-b flex justify-between items-center">
+                <h2 class="font-bold text-lg text-gray-800">Status Stok Terkini</h2>
+                <button id="btn-tambah" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm transition duration-300">
+                    + Tambah Barang Baru
+                    
+                </button>
+            </div>
+            <table class="min-w-full">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kode SKU</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Barang</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stok</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    NANTI DISINI PAKAI LOGIKA PHP YANG MEMANGGIL DATA DARI DATABASE SECARA OTOMATIS MENAMPILKAN STATUS STOK BARANGNYA
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modal-tambah" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center z-50">
+    
+    <div class="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md border-t-4 border-blue-600">
+        <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Daftarkan Barang Baru</h2>
+        
+        <form>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Kode SKU</label>
+                <input type="text" class="border rounded w-full py-2 px-3 text-gray-700" placeholder="Contoh: SKU-003">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Nama Barang</label>
+                <input type="text" class="border rounded w-full py-2 px-3 text-gray-700" placeholder="Ketik nama barang...">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Kategori</label>
+                <select class="border rounded w-full py-2 px-3 text-gray-700">
+                    <option>Elektronik</option>
+                    <option>Alat Tulis Kantor</option>
+                    <option>Furnitur</option>
+                </select>
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Stok Awal</label>
+                <input type="number" class="border rounded w-full py-2 px-3 text-gray-700" value="0">
+            </div>
+            
+            <div class="flex justify-end space-x-3">
+                <button type="button" id="btn-batal" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded transition duration-200">
+                    Batal
+                </button>
+                <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-200">
+                    Simpan Master Barang
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    //tombol "+ Tambah Barang Baru" di dashboard diberi id="btn-tambah"
+    const btnTambah = document.getElementById('btn-tambah'); 
+    const btnBatal = document.getElementById('btn-batal');
+    const modal = document.getElementById('modal-tambah');
+
+    // Jika tombol tambah diklik, hapus class 'hidden' agar modal muncul
+    if(btnTambah) {
+        btnTambah.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+    }
+
+    // Jika tombol batal diklik, tambahkan class 'hidden' agar modal menghilang
+    if(btnBatal) {
+        btnBatal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    }
+</script>
+
+</body>
+</html>
