@@ -105,14 +105,6 @@
                         <th class="px-6 py-4 text-[11px] font-bold text-gray-500 uppercase tracking-widest">Jumlah</th>
                         <th class="px-6 py-4 text-[11px] font-bold text-gray-500 uppercase tracking-widest">Status</th>
                         <th class="px-6 py-4 text-[11px] font-bold text-gray-500 uppercase tracking-widest">Aksi</th>
-
-                        <td>
-                            <a href="hapus-barang.php?id=<?= $r['id_barang'] ?>" 
-                            onclick="return confirm('Yakin ingin menghapus <?= $r['nama_barang'] ?>?');" 
-                            class="btn-hapus">
-                            Hapus
-                            </a>
-                        </td>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-100">
